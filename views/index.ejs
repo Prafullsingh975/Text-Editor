@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VSCODE</title>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.0.0/fonts/remixicon.css" rel="stylesheet">
+  <link rel="stylesheet" href="../stylesheets/style.css">
+</head>
+
+<body>
+  <div id="main">
+    <div id="left">
+      <h3>Sasta VS code</h3>
+      <div class="nav">
+        <h4>Folder Name <span>
+            <i class="ri-delete-bin-line"></i>
+            <i id="folderI" class="ri-folder-fill"></i>
+            <i id="fileI" class="ri-file-3-line"></i>
+          </span>
+        </h4>
+      </div>
+      <div class="files">
+        <form id="file" action="/fileCreated">
+          <input type="text" name="fileName" placeholder="File Name">
+        </form>
+        <form id="folder" action="/fileCreated">
+          <input type="text" name="folderName" placeholder="Folder Name">
+        </form>
+      </div>
+      <div id="files">
+        <% files.forEach((file)=>{ %>
+          <% if(file.isDirectory()){ %>
+            <h5><i class="ri-folder-fill"></i> <%= file.name %></h5>
+          <% } else { %>
+          <h5><i class="ri-file-3-line"></i> <%= file.name %></h5>
+          <% } %>
+        <% }) %>
+      </div>
+    </div>
+    <div id="right">
+      <small>File</small>
+    </div>
+  </div>
+  <script src="../javascripts/script.js"></script>
+</body>
+</html>
