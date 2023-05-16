@@ -14,7 +14,6 @@
 
   <body>
     <div id="main">
-
       <div id="left">
         <h3>Sasta VS code</h3>
         <div class="nav">
@@ -50,7 +49,9 @@
           </span>
           <% } else { %>
           <span class="name">
-            <a href="/file/<%= file.name %>"><h5><i class="ri-file-3-line"></i> <%= file.name %></h5> </a>
+            <a href="/file/<%= file.name %>"
+              ><h5><i class="ri-file-3-line"></i> <%= file.name %></h5>
+            </a>
             <div class="icon">
               <i class="ri-pencil-line"></i>
               <a href="/deleted/<%= file.name %>">
@@ -63,10 +64,15 @@
       </div>
 
       <div id="right">
-        <!-- <div id="rnav">
-          <div class="openFile">chacha.txt  <i class="ri-close-fill"></i></div>
-        </div> -->
-        <small>Nothing to Show</small>
+        <div id="rnav">
+          <div class="openFile">
+            <%= fileOpen %> <i class="ri-close-fill"></i>
+          </div>
+          <button class="save" type="submit" form="saveData"><i class="ri-save-line"></i></button>
+        </div>
+        <form id="saveData" action="/save/<%= fileOpen %>" method="post">
+          <textarea name="textarea"><%= data %></textarea>
+        </form>
       </div>
     </div>
     <script src="../javascripts/script.js"></script>
